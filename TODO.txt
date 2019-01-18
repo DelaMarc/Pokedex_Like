@@ -1,0 +1,39 @@
+Pokedex_Like
+
+système login/register avec SQLite
+recherche de pokemon avec PokeAPI
+	recherche par nom ou par type
+
+3 onglets/vues une fois logué:
+
+1) Profil
+	affiche login (non modifiable) + photo de profil (avec camera)
+	Liste des poké favoris
+	charger la liste à chaque entrée dans la vue
+
+2) Recherche
+
+	recherche par nom ou par type déterminé par bouton-booléen
+
+	si recherche apr nom:  champ de texte pour le nom
+	si recherche par type: select contenant les types
+	bouton de recherche
+
+Résultats de recherche sous forme de liste
+	cliquer sur un nom de pkmn affiche sprite + infos
+	OU charger les sprites directement
+
+	Pur chaque pkmn, avoir un bouton fav/unfav (interagit avec sqlite)
+
+Notes: liste des poké favoris en global
+		savoir qu'on est logués
+		stocker user id
+			--> Redux
+
+Assignation:
+	Marc: système de Loin avec SQLite
+			photo de profil
+
+	Clément: Appels API
+			Listes 
+			Gesture
