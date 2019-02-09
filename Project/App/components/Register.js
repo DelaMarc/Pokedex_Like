@@ -9,9 +9,10 @@ import { StyleSheet,
 
 import Login from './Login';
 
-import { StackNavigator, NavigationActions } from 'react-navigation';
+import { StackNavigator, NavigationActions, StackActions } from 'react-navigation';
 import { Constants, SQLite } from 'expo';
 import { openDatabase } from 'react-native-sqlite-storage';
+import * as firebase from 'firebase';
 
 const db = SQLite.openDatabase('db.db');
 
@@ -30,7 +31,7 @@ export default class Register extends React.Component {
 
   componentDidMount(){
 
-    //this._loadInitialState().done();
+    this._loadInitialState().done();
   }
 
   _loadInitialState = async () =>{
@@ -79,7 +80,7 @@ export default class Register extends React.Component {
   }
 
   go_back = () => {
-    var navActions = NavigationActions.reset({
+    var navActions = StackActions.reset({
       index: 0,
       actions: [
         NavigationActions.navigate({routeName: "Login"})

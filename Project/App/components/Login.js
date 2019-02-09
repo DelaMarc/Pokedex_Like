@@ -8,7 +8,7 @@ import { StyleSheet,
           //Alert,
           AsyncStorage } from 'react-native';
 
-import { StackNavigator, NavigationActions } from 'react-navigation';
+import { StackNavigator, NavigationActions, StackActions } from 'react-navigation';
 import { Constants, SQLite } from 'expo';
 import { openDatabase } from 'react-native-sqlite-storage';
 
@@ -30,7 +30,7 @@ export default class Login extends React.Component {
 
     //initialize firebase
     if (!firebase.apps.length){
-      firebase.initializeApp(ApiKeys.FireBaseConfig);
+      firebase.initializeApp(ApiKeys.FirebaseConfig);
     }
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
     
@@ -112,10 +112,16 @@ export default class Login extends React.Component {
       else{
         firebase.auth().signInWithEmailAndPassword(username, password)
         .then(() => {
-
-        }, (error) => {
-          alert(error.message);
+          var navActions = StackActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({routeName: "Profile"})
+          ]
         });
+        this.props.navigation.dispatch(navActions);
+            }, (error) => {
+              alert(error.message);
+            });
         //alert('we should navigate');
         //AsyncStorage.setItem('user', username);
         //this.props.navigation.navigate('Profile'); 
@@ -125,10 +131,10 @@ export default class Login extends React.Component {
 
   go_to_register = () => {
     //this.props.navigation.navigate('Register');
-    var navActions = NavigationActions.reset({
+    var navActions = StackActions.reset({
       index: 0,
       actions: [
-        NavigationActions.navigate({routeName: "Signup"})
+        NavigationActions.navigate({routeName: "Register"})
       ]
     });
     this.props.navigation.dispatch(navActions);
