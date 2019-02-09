@@ -29,14 +29,14 @@ export default class Login extends React.Component {
       }
 
     //initialize firebase
-    /*if (!firebase.apps.length){
+    if (!firebase.apps.length){
       firebase.initializeApp(ApiKeys.FireBaseConfig);
     }
-    firebase.auth().onAuthStateChanged(this.onAuthStateChanged);*/
+    firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
     
   }
 
-  componentWillMount() {
+  /*componentWillMount() {
     firebase.initializeApp({
       apiKey: "AIzaSyB-o8maO0AwEBmrchncqK1VNJwgBGO6dLY",
       authDomain: "pokedexlike-fe4c3.firebaseapp.com",
@@ -45,7 +45,7 @@ export default class Login extends React.Component {
       storageBucket: "pokedexlike-fe4c3.appspot.com",
       messagingSenderId: "609127205985"
     });
-  }
+  }*/
 
   onAuthStateChanged = (user) => {
     this.setState({isAuthenticationReady: true});
