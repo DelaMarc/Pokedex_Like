@@ -118,6 +118,10 @@ export default class Login extends React.Component {
             NavigationActions.navigate({routeName: "Profile"})
           ]
         });
+
+        //let user = firebase.auth().currentUser;
+        //alert(user.uid);
+
         this.props.navigation.dispatch(navActions);
             }, (error) => {
               alert(error.message);

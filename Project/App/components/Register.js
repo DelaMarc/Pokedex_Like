@@ -31,7 +31,7 @@ export default class Register extends React.Component {
 
   componentDidMount(){
 
-    this._loadInitialState().done();
+    //this._loadInitialState().done();
   }
 
   _loadInitialState = async () =>{

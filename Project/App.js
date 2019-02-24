@@ -12,7 +12,8 @@ import * as firebase from 'firebase';
 
 const RegisterStack = createStackNavigator({
   Register : {screen: Register},
-  Login: {screen : Login}
+  Login: {screen : Login},
+  Profile: {screen: Profile}
 })
 
 const Application = createStackNavigator({
