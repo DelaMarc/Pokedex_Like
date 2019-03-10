@@ -1,23 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StyleSheet, Text, View  } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-          <Text>HELLO WORLD</Text>
-      </View>
+import PokeList from './App/components/PokeList';
+import Pokemon from './App/components/Pokemon';
+import Home from './App/components/Home';
 
-    );
-  }
+// export default class App extends React.Component {
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <Text style={styles.pokeListHeader}>Pokemon API</Text>
+//             </View >
+//         );
+//     }
+// }
+
+const RootStack = createStackNavigator({
+    //Define your screens.
+    Home: { screen: Home },
+    PokeList: { screen: PokeList },
+    Pokemon: {screen: Pokemon }
+  },
+  {
+    initialRouteName:  'Home'
+  })
+
+
+//Export default the stateless component
+const App = () => {
+  return <RootStack />
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
